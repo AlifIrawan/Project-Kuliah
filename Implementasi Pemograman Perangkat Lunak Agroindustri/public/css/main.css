@@ -1,0 +1,44 @@
+body {
+    background-image: linear-gradient(to bottom right, #196046 , #2C9760, #8BD19E);
+    height: 800px;
+}
+
+.background{
+    width: 900px;
+    height: 537px;
+    background-color: #F3F3F3;
+    margin: 70px auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.5);
+}
+
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    color: #2C9760;
+}
+
+.poppins{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #8C8C8C;
+}
+
+.poppinslg{
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.mybtn{
+    border-radius: 20px;
+    padding: 2px 35px;
+    background-color: #2C9760;
+    box-shadow: 2px 2px 2px rgba(0,0,0,.5);
+}
+
+.background p a{
+    /* text-decoration: none; */
+    color: #2C9760;
+}

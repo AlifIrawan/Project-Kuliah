@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/652faa76c7.js" crossorigin="anonymous"></script>
+    <title>The Movie Database</title>
+</head>
+
+<body>
+    <div class="container my-2">
+        <div class="float-end">
+            <a href="#" class="btn btn-primary">Create</a>
+        </div>
+        <h1>Popular Movie</h1>
+        <div class="row mt-4">
+            <div class="col-lg-8">
+                <div class="row g-3" id="bikininData">
+                </div>
+                <div class="row g-3 mt-2">
+                    <div class="col-lg-12 d-grid gap-2">
+                        <button type="button" class="btn btn-primary" id="bikininLoad">Load More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <script>
+        var page = 0
+
+        $(document).ready(function() {
+            $("#bikininLoad").click(function(){
+                $(this).html("Loading...").attr("disabled", "disabled");
+                $.get("film.php?begin=" + page, function(response) {
+                    $.each(response, function(key, value) {
+                        $("#bikininData").append("<div class='col-4'><div class='card'>" +
+                            "<div class='card-body'>" +
+                            "<img class='card-img-top' src='" + value.thumbail + "'/>" +
+                            "<h5 class='card-title'>" + value.title + "<h5>" +
+                            "<p class='card-text'>Rating: " + value.rating + "</p>" +
+                            "</div>" +
+                            "<div></div>");
+                    });
+                    page += 9;
+                    $("#bikininLoad").html("Load More").removeAttr("disabled")
+                });
+            }).trigger("click");
+        });
+    </script>
+</body>
+
+</html>
